@@ -53,14 +53,25 @@ def _log(model, usd, usage, tag):
         f.write(json.dumps({"t": time.time(), "model": model, "usd": usd, "usage": usage, "tag": tag}) + "\n")
 
 
-def _post(path, body, timeout=300):
-    req = urllib.request.Request(BASE + path, data=json.dumps(body).encode(), method="POST",
-                                 headers={"Authorization": f"Bearer {_key()}", "Content-Type": "application/json"})
-    try:
-        with urllib.request.urlopen(req, timeout=timeout) as r:
-            return json.load(r)
-    except urllib.error.HTTPError as e:
-        raise RuntimeError(f"HTTP {e.code}: {e.read().decode()[:500]}") from None
+def _post(path, body, timeout=120, attempts=4):
+    """POST with retries on timeouts, 429 and 5xx (exponential backoff). A timed-out request may still have been
+    billed by the server; such attempts are counted in runs/timeouts.jsonl so the ledger gap is visible."""
+    data = json.dumps(body).encode()
+    for i in range(attempts):
+        req = urllib.request.Request(BASE + path, data=data, method="POST",
+                                     headers={"Authorization": f"Bearer {_key()}", "Content-Type": "application/json"})
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                return json.load(r)
+        except urllib.error.HTTPError as e:
+            if e.code != 429 and e.code < 500 or i == attempts - 1:
+                raise RuntimeError(f"HTTP {e.code}: {e.read().decode()[:500]}") from None
+        except (TimeoutError, urllib.error.URLError, ConnectionError) as e:
+            with (LEDGER.parent / "timeouts.jsonl").open("a") as f:
+                f.write(json.dumps({"t": time.time(), "path": path, "model": body.get("model"), "err": repr(e)}) + "\n")
+            if i == attempts - 1:
+                raise
+        time.sleep(2 ** i * 3)
 
 
 def chat(messages, model="muse-spark-1.3", effort="minimal", max_tokens=2000, tag="", **kw):
@@ -72,7 +83,12 @@ def chat(messages, model="muse-spark-1.3", effort="minimal", max_tokens=2000, ta
     u = d["usage"]
     usd = u["prompt_tokens"] * pin / 1e6 + u["completion_tokens"] * pout / 1e6
     _log(model, usd, u, tag)
-    return d["choices"][0]["message"]["content"], usd
+    content = d["choices"][0]["message"]["content"]
+    if content is None and d["choices"][0]["finish_reason"] == "length" and max_tokens < 16000:
+        # reasoning used the whole budget before any answer: retry once with twice the room
+        content, more = chat(messages, model, effort, max_tokens * 2, tag + ":retry", **kw)
+        usd += more
+    return content, usd
 
 
 def _data_url(path):
