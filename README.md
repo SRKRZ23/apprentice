@@ -27,6 +27,25 @@ the event.
   3× upscaled crop — the objects are a few pixels wide and low contrast against the white suit. Next: point prompts
   and a time-of-flight estimate with a size reference.
 
+- **2026-10-27 (b)** — 50 randomized clips (`scripts/gen_sim_set.py`, seed 1: g 1–25 m/s², drop height 1.2–1.9 m,
+  horizontal speed up to 1 m/s) + a VHS-degraded copy of 10 of them (320×240, blur, noise, CRF 32).
+  Impact detection rewritten: the free-flight window ends where two frames in a row fall 3σ short of the parabola
+  fitted so far (argmax- and speed-based rules failed on noisy video — one VHS clip had read −9.4% and passed the
+  check because frames of the ball lying on the floor were in the fit). Acceptance now also needs ≥ 8 frames and
+  no systematic bias in the last 5 residuals.
+
+  | set | clips | median abs error | p90 | max | 95% CI coverage | false accepts (>2%) | SAM cost |
+  |---|---|---|---|---|---|---|---|
+  | clean 640×480 | 50 | 0.11% | 0.39% | 0.70% | 90% | 0 | $0.60 |
+  | VHS-degraded 320×240 | 10 | 0.68% | 1.06% | 1.42% | 100% | 0 | $0.12 |
+
+  Mean signed error on the clean set −0.004% (no bias), no correlation with g. Not yet tested: a clip that should
+  be rejected (non-ballistic motion) — the rejection path has had nothing to reject so far.
+  Apollo 15: a SAM 3.1 point prompt at frame 33 tracks the object in Scott's hand through frame 44 (c 0.8–0.9),
+  then loses it as it speeds up. Joining that with a background-subtraction track to the ground and a scale from the
+  astronaut's height gives g between ~1.1 and ~2.6 m/s² depending on frame and scale choices: Earth gravity is
+  excluded, ±10% is not reached from this 720×480 tape. Recorded as a negative result, not tuned to hit 1.62.
+
 ## Run
 ```
 python3 -m venv .venv && .venv/bin/pip install mujoco numpy scipy pillow imageio imageio-ffmpeg
