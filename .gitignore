@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+*.pyc
+data/apollo15/*.mp4
+data/apollo15/*.wav
+data/apollo15/*.png
+.env
+*.env
