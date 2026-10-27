@@ -36,13 +36,14 @@ for clip in a.clips:
     r = measure(centres, gt["fps"], gt["px_per_m"], cy) if found >= 4 else {"g": None}
     if r.get("g") is not None:
         r["z0"] += gt["cam_z"]
-        r["err_pct"] = 100 * (r["g"] - gt["g"]) / gt["g"]
+        r["err_pct"] = 100 * (r["g"] - gt["g"]) / gt["g"] if gt["g"] else None  # g=None: negative control
     rows.append({"clip": Path(clip).name, "g_true": gt["g"], "frames": n, "tracked": found, "usd": round(usd, 4), **r})
     print(json.dumps(rows[-1]))
 
 if a.out:
     import numpy as np
-    ok = [r for r in rows if r.get("g") is not None]
+    neg = [r for r in rows if r["g_true"] is None]
+    ok = [r for r in rows if r.get("g") is not None and r["g_true"] is not None]
     err = np.array([abs(r["err_pct"]) for r in ok])
     inside = sum(r["ci95"][0] <= r["g_true"] <= r["ci95"][1] for r in ok)
     summary = {"clips": len(rows), "measured": len(ok), "accepted": sum(bool(r["accepted"]) for r in ok),
@@ -52,6 +53,7 @@ if a.out:
                "ci95_coverage": inside / len(ok) if ok else None,
                "false_accepts_over_2pct": sum(bool(r["accepted"]) and abs(r["err_pct"]) > 2 for r in ok),
                "rejected_over_2pct": sum((not r["accepted"]) and abs(r["err_pct"]) > 2 for r in ok),
+               "negatives": len(neg), "negatives_rejected": sum(not r.get("accepted", False) for r in neg),
                "usd": round(sum(r["usd"] for r in rows), 4), "prompt": a.prompt, "oracle": a.oracle}
     json.dump({"summary": summary, "rows": rows}, open(a.out, "w"), indent=1)
     print(json.dumps(summary))

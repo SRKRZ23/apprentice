@@ -57,7 +57,10 @@ def move_order(video10, fps=10, tag="observe"):
         tr.sort()
         f0, u0, v0, box0 = tr[0]
         colour = colour_name(frames[min(f0, len(frames) - 1)], box0)
-        moved = next((f for f, u, v, _ in tr if np.hypot(u - u0, v - v0) > 10), None)
+        # moved = first frame of a run of 3 consecutive samples displaced > 15 px (a gripper passing over a cube
+        # jitters its box for a frame or two; a real pick keeps it away)
+        far = [np.hypot(u - u0, v - v0) > 15 for f, u, v, _ in tr]
+        moved = next((tr[j][0] for j in range(len(tr) - 2) if far[j] and far[j + 1] and far[j + 2]), None)
         if moved is not None:
             order.append((colour, moved / fps))
     order.sort(key=lambda x: x[1])

@@ -36,8 +36,19 @@ def free_flight_window(v, t, start=8):
         sigma = max(np.sqrt(np.mean((v[:k] - A[:k] @ c) ** 2)), 0.5)
         short = A[k:k + 2] @ c - v[k:k + 2]
         if (short > 3 * sigma).all():
-            return slice(0, k - 1)  # drop the last frame before impact (contact, partial occlusion)
-    return slice(0, len(v))
+            return slice(0, k - 1), k  # drop the last frame before impact (contact, partial occlusion)
+    return slice(0, len(v)), None
+
+
+def ended_by_impact(v, k):
+    """A free flight ends in an impact: within 3 frames of the break the downward speed collapses to under half
+    of what it was just before (stop or bounce). A spring, a hand or drag bends the path smoothly instead."""
+    if k is None:
+        return True  # still in flight when the clip ends
+    v = np.asarray(v, float)
+    before = v[k - 1] - v[k - 2]
+    after = (v[min(k + 3, len(v) - 1)] - v[k]) / max(min(k + 3, len(v) - 1) - k, 1)
+    return before > 0 and after < 0.5 * before
 
 
 def fit_g(t, z, n_boot=2000, seed=0):
@@ -58,7 +69,7 @@ def fit_g(t, z, n_boot=2000, seed=0):
 def measure(centres, fps, px_per_m, cy):
     frames = sorted(centres)
     v = np.array([centres[f][1] for f in frames])
-    w = free_flight_window(v, np.array(frames, float) / fps)
+    w, k_break = free_flight_window(v, np.array(frames, float) / fps)
     t = np.array(frames, float)[w] / fps
     z = (cy - v[w]) / px_per_m
     out = fit_g(t, z)
@@ -67,6 +78,8 @@ def measure(centres, fps, px_per_m, cy):
     res = z - A @ np.array([out["z0"], out["v0"], out["g"]])
     tail = abs(res[-5:].mean()) if len(res) >= 8 else 0.0
     out["tail_bias_px"] = float(tail * px_per_m)
-    out["accepted"] = bool(out["n"] >= 8 and out["rms_m"] < 2.0 / px_per_m and tail * px_per_m < 1.0)
+    out["ended_by_impact"] = bool(ended_by_impact(v, k_break))
+    out["accepted"] = bool(out["n"] >= 8 and out["rms_m"] < 2.0 / px_per_m and tail * px_per_m < 1.0
+                           and out["ended_by_impact"])
     out["frames_used"] = (frames[w][0], frames[w][-1]) if len(frames[w]) else None
     return out

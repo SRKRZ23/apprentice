@@ -46,6 +46,51 @@ the event.
   astronaut's height gives g between ~1.1 and ~2.6 m/s² depending on frame and scale choices: Earth gravity is
   excluded, ±10% is not reached from this 720×480 tape. Recorded as a negative result, not tuned to hit 1.62.
 
+- **2026-10-27 (c)** — Watch once, do anywhere, check yourself.
+  Own Cartesian robot with a friction gripper in MuJoCo; three task families (sort by colour, build a tower in
+  order, arbitrary cube→mat pairing). One teacher video per task → Muse Spark writes a task program (a rule such as
+  "each cube on the mat of its own colour", or an ordered sequence) → the robot runs it in new scenes using only
+  SAM 3.1 perception of a camera still → plan-guided SAM 3.1 verification (one request with a point prompt where
+  each object should now be, plus colour and change checks) → one retry for rejected steps.
+
+  | 60 new scenes (20 per task; sort scenes use 3–5 cubes incl. colours never shown) | success |
+  |---|---|
+  | replay the teacher's gripper path | 0% |
+  | copy exactly what was done (perfect positions) | 67% (0% on sort) |
+  | **Apprentice** (Spark program + SAM 3.1 perception + verification) | **100%** |
+  | oracle (true program, perfect positions) | 100% |
+
+  Verification agreed with physics in 60/60 episodes, 0 false success claims, $0.0075 per episode.
+  Not yet shown: verification catching a real failure in Do (none occurred); the coach run below exercises it.
+
+  **Why SAM 3.1 for the robot's eyes** — same 20 scenes, same program, same robot, only the eyes differ:
+
+  | eyes | median localisation error | task success |
+  |---|---|---|
+  | SAM 3.1 boxes + calibrated back-projection | 2.4 mm | 95% |
+  | Muse Spark asked for pixel coordinates | 24.8 mm | 15% |
+
+  **Do frontier models measure, or recall?** Muse Spark given the same clips and the same scale information,
+  asked to measure g "from the motion, do not assume Earth": it answered 9.81 on 12/12 clips whose true g ranged
+  1.95–24.1 m/s² (median error 48%). Muse Wonder on the Moon clip returned no number ($0.16).
+  Apprentice on the same 12 clips: median error 0.11%.
+
+  **Honest negative:** Spark (and Wonder) given the raw teacher video wrote the correct program for all three
+  demos, at $0.007 (Spark) vs $0.043 for the SAM-tracking route. For understanding easy demos SAM is not needed;
+  its job is metric grounding, measurement and verification.
+
+  **Coach** — 30 trainee attempts with injected mistakes (missed step, wrong mat, wrong stacking order) and clean
+  attempts: 21/21 faulty attempts caught, mistake type named correctly in 30/30, 0/9 clean attempts flagged,
+  $0.027 per attempt. "Extra cube moved" could not be injected in this run (no free mat in the scenes) — untested.
+
+  **Measure rejection** — 10 spring-oscillation clips (not free fall): 10/10 rejected (a free flight must end in an
+  impact: speed collapses within 3 frames, or the clip ends in flight); all 60 real clips still accepted.
+
+  **Harness bug found and fixed:** mujoco's `Renderer.close()` frees GL objects in whatever context is current, so a
+  garbage-collected old world deleted the framebuffers of the world being recorded (flipped frames of another
+  scene; 14/15 worlds corrupted in an A/B test, 0/15 after making the own context current before close). Every
+  watch-do / grounding / coach number above comes from runs after the fix.
+
 ## Run
 ```
 python3 -m venv .venv && .venv/bin/pip install mujoco numpy scipy pillow imageio imageio-ffmpeg

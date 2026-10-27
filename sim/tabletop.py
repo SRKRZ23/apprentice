@@ -131,12 +131,31 @@ class Tabletop:
         return {c: self.d.body(f"cube_{c}").xpos.copy() for c in self.cubes}
 
     def render_still(self):
-        ren = self.ren or mujoco.Renderer(self.m, self.H, self.W)
-        ren.update_scene(self.d, camera="cam")
-        return ren.render()
+        # one renderer per world, reused; creating many OpenGL contexts without closing them makes macOS hand back
+        # frames from another world's context (seen as flipped frames of a different scene)
+        if self.ren is None:
+            self.ren = mujoco.Renderer(self.m, self.H, self.W)
+        self.ren.update_scene(self.d, camera="cam")
+        return self.ren.render()
 
     def save_video(self, path):
         imageio.mimsave(path, self.frames, fps=FPS, codec="libx264", quality=8, macro_block_size=8)
+
+    def close(self):
+        # mujoco's Renderer.close() frees its GL objects in whatever context is current; when the garbage collector
+        # closes an old world while a newer one is recording, that deletes the NEW world's framebuffers. Make our
+        # own context current first.
+        if self.ren is not None:
+            if self.ren._gl_context:
+                self.ren._gl_context.make_current()
+            self.ren.close()
+            self.ren = None
+
+    def __del__(self):
+        try:
+            self.close()
+        except Exception:
+            pass
 
     def camera(self):
         """Intrinsics/extrinsics of the fixed camera (for pixel -> table back-projection)."""

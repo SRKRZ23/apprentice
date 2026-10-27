@@ -1,0 +1,106 @@
+== sort: learned {"summary": "Move each cube to the mat of its own colour", "for_each": {"object": {"kind": "cube"}, "target": {"kind": "zone", "colour": "SAME_AS_OBJECT"}}}
+{"task": "sort", "scene": 0, "replay": false, "literal": false, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "sort", "scene": 1, "replay": false, "literal": false, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "sort", "scene": 2, "replay": false, "literal": false, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "sort", "scene": 3, "replay": false, "literal": false, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "sort", "scene": 4, "replay": false, "literal": false, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "sort", "scene": 5, "replay": false, "literal": false, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "sort", "scene": 6, "replay": false, "literal": false, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "sort", "scene": 7, "replay": false, "literal": false, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "sort", "scene": 8, "replay": false, "literal": false, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "sort", "scene": 9, "replay": false, "literal": false, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "sort", "scene": 10, "replay": false, "literal": false, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "sort", "scene": 11, "replay": false, "literal": false, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "sort", "scene": 12, "replay": false, "literal": false, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "sort", "scene": 13, "replay": false, "literal": false, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "sort", "scene": 14, "replay": false, "literal": false, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "sort", "scene": 15, "replay": false, "literal": false, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "sort", "scene": 16, "replay": false, "literal": false, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "sort", "scene": 17, "replay": false, "literal": false, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "sort", "scene": 18, "replay": false, "literal": false, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "sort", "scene": 19, "replay": false, "literal": false, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+== stack: learned {"summary": "stack blue on red mat then yellow on blue then green on yellow", "steps": [{"object": {"colour": "blue"}, "target": {"kind": "zone", "colour": "red"}}, {"object": {"colour": "yellow"}, "target": {"kind": "cube", "colour": "blue"}}, {"object": {"colour": "green"}, "target": {"kind": "cube", "colour": "yellow"}}]}
+{"task": "stack", "scene": 0, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "stack", "scene": 1, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "stack", "scene": 2, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "stack", "scene": 3, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "stack", "scene": 4, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "stack", "scene": 5, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "stack", "scene": 6, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "stack", "scene": 7, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "stack", "scene": 8, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "stack", "scene": 9, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "stack", "scene": 10, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "stack", "scene": 11, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "stack", "scene": 12, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "stack", "scene": 13, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "stack", "scene": 14, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "stack", "scene": 15, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "stack", "scene": 16, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "stack", "scene": 17, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "stack", "scene": 18, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "stack", "scene": 19, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+== map: learned {"summary": "Move blue cube to purple mat, red cube to orange mat, green cube to yellow mat in order", "steps": [{"object": {"colour": "blue"}, "target": {"kind": "zone", "colour": "purple"}}, {"object": {"colour": "red"}, "target": {"kind": "zone", "colour": "orange"}}, {"object": {"colour": "green"}, "target": {"kind": "zone", "colour": "yellow"}}]}
+{"task": "map", "scene": 0, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "map", "scene": 1, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "map", "scene": 2, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "map", "scene": 3, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "map", "scene": 4, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "map", "scene": 5, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "map", "scene": 6, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "map", "scene": 7, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "map", "scene": 8, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "map", "scene": 9, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "map", "scene": 10, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "map", "scene": 11, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "map", "scene": 12, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "map", "scene": 13, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "map", "scene": 14, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "map", "scene": 15, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "map", "scene": 16, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "map", "scene": 17, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "map", "scene": 18, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{"task": "map", "scene": 19, "replay": false, "literal": true, "oracle": true, "ours": true, "ours_vision_says": true, "retries": 0, "plan_matches_truth": true, "usd": 0.0075}
+{
+ "sort": {
+  "replay": 0.0,
+  "literal": 0.0,
+  "oracle": 1.0,
+  "ours": 1.0,
+  "n": 20,
+  "vision_agrees_with_physics": 1.0,
+  "false_success_claims": 0,
+  "usd_per_episode": 0.0075
+ },
+ "stack": {
+  "replay": 0.0,
+  "literal": 1.0,
+  "oracle": 1.0,
+  "ours": 1.0,
+  "n": 20,
+  "vision_agrees_with_physics": 1.0,
+  "false_success_claims": 0,
+  "usd_per_episode": 0.0075
+ },
+ "map": {
+  "replay": 0.0,
+  "literal": 1.0,
+  "oracle": 1.0,
+  "ours": 1.0,
+  "n": 20,
+  "vision_agrees_with_physics": 1.0,
+  "false_success_claims": 0,
+  "usd_per_episode": 0.0075
+ },
+ "all": {
+  "replay": 0.0,
+  "literal": 0.667,
+  "oracle": 1.0,
+  "ours": 1.0,
+  "n": 60,
+  "vision_agrees_with_physics": 1.0,
+  "false_success_claims": 0,
+  "usd_per_episode": 0.0075
+ }
+}
+ledger $7.341

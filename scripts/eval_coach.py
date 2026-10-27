@@ -9,8 +9,7 @@ import numpy as np
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from sim.tabletop import Tabletop
 from sim.tasks import resolve, run_steps, random_layout, PALETTE
-from understand.observe import observe
-from coach.coach import assess
+from coach.coach import coach_attempt
 from apprentice.meta_client import spent
 
 ap = argparse.ArgumentParser()
@@ -32,12 +31,15 @@ for i in range(a.n):
     else:
         cols = [s["object"]["colour"] for s in prog["steps"]]
         zcs = sorted({s["target"]["colour"] for s in prog["steps"] if s["target"]["kind"] == "zone"})
-        extra = str(rng.choice([c for c in PALETTE if c not in cols + zcs]))
-        cubes, zones = random_layout(rng, len(cols) + 1, len(zcs), cols + [extra], zcs, min_gap=0.1, area=0.22)
+        spare = [c for c in PALETTE if c not in cols + zcs] or [c for c in PALETTE if c not in cols]
+        extra = [str(rng.choice(spare))] if spare else []
+        cubes, zones = random_layout(rng, len(cols) + len(extra), len(zcs), cols + extra, zcs, min_gap=0.1, area=0.22)
     plan = resolve(prog, cubes, zones)
     kind = KINDS[int(rng.integers(len(KINDS)))]
     if kind == "wrong_order" and task != "stack":
         kind = "wrong_target"
+    if kind == "wrong_target" and task == "stack":  # one mat only: a wrong target would wreck the whole tower
+        kind = "missed"
     steps = list(plan)
     if kind == "wrong_target":   # one cube goes to another mat/cube than it should
         k = int(rng.integers(len(steps)))
@@ -50,22 +52,22 @@ for i in range(a.n):
         (o1, k1, c1), (o2, _, _) = steps[0], steps[1]
         steps = [(o2, k1, c1), (o1, "cube", o2)] + steps[2:3]
         steps[2] = (steps[2][0], "cube", o1)
-    elif kind == "extra":
+    elif kind == "extra":  # an uninvolved cube moved onto a FREE mat (never onto an occupied one)
         free = [c for c in cubes if c not in {s[0] for s in plan}]
-        if free:
-            used = {s[2] for s in plan if s[1] == "zone"}
-            spot = [z for z in zones if z not in used] or list(zones)
-            steps.append((free[0], "zone", spot[0]) if task != "sort" else (free[0], "zone", spot[0]))
+        used = {s[2] for s in plan if s[1] == "zone"}
+        spot = [z for z in zones if z not in used]
+        if free and spot:
+            steps.append((free[0], "zone", spot[0]))
         else:
-            kind = "none"
+            kind = "missed"
+            steps.pop(len(steps) - 1)
     w = Tabletop(cubes, zones, record=True); w.home(); w.settle(8)
     run_steps(w, steps, lambda c: tuple(w.cube_positions()[c]), lambda z: (*zones[z], 0.0))
     w.home(); w.settle(12)
     video = f"data/coach/t{i:03d}.mp4"; w.save_video(video)
-    obs = observe(video, w.camera(), tag=f"coach:{i}")
-    rep = assess(prog, obs)
+    rep = coach_attempt(video, prog, w.camera(), tag=f"coach:{i}")
     found = sorted({f["type"] for f in rep["feedback"]})
-    row = {"i": i, "task": task, "injected": kind, "found": found, "usd": obs["usd"],
+    row = {"i": i, "task": task, "injected": kind, "found": found, "usd": rep["usd"],
            "feedback": [f["say"] for f in rep["feedback"]]}
     rows.append(row)
     print(json.dumps({k: row[k] for k in ("i", "task", "injected", "found", "feedback")}))

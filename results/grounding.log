@@ -1,0 +1,38 @@
+{"scene": 0, "n": 4, "sam": {"success": true, "steps_ok": 4, "steps": 4, "found": 8, "objects": 8, "median_err_mm": 2.3635595023528984, "max_err_mm": 4.047426934758523, "usd": 0.005}, "llm": {"success": false, "steps_ok": 3, "steps": 4, "found": 8, "objects": 8, "median_err_mm": 9.123683996256238, "max_err_mm": 45.494391117254665, "usd": 0.005228750000000001}}
+{"scene": 1, "n": 5, "sam": {"success": true, "steps_ok": 5, "steps": 5, "found": 10, "objects": 10, "median_err_mm": 1.8838326659407774, "max_err_mm": 4.9223928484328034, "usd": 0.005}, "llm": {"success": false, "steps_ok": 4, "steps": 5, "found": 10, "objects": 10, "median_err_mm": 9.863787397630542, "max_err_mm": 35.54241296264294, "usd": 0.00369025}}
+{"scene": 2, "n": 4, "sam": {"success": true, "steps_ok": 4, "steps": 4, "found": 8, "objects": 8, "median_err_mm": 2.4736618338670437, "max_err_mm": 3.836483234843202, "usd": 0.005}, "llm": {"success": false, "steps_ok": 0, "steps": 4, "found": 8, "objects": 8, "median_err_mm": 71.34848227239573, "max_err_mm": 143.72469981630397, "usd": 0.0035245}}
+{"scene": 3, "n": 4, "sam": {"success": true, "steps_ok": 4, "steps": 4, "found": 8, "objects": 8, "median_err_mm": 2.043094309422658, "max_err_mm": 3.349170751391636, "usd": 0.005}, "llm": {"success": false, "steps_ok": 2, "steps": 4, "found": 8, "objects": 8, "median_err_mm": 35.82517893616849, "max_err_mm": 48.29639873839058, "usd": 0.0043490000000000004}}
+{"scene": 4, "n": 4, "sam": {"success": false, "steps_ok": 3, "steps": 4, "found": 7, "objects": 8, "median_err_mm": 3.191434780514887, "max_err_mm": 5.365306593141219, "usd": 0.005}, "llm": {"success": false, "steps_ok": 3, "steps": 4, "found": 8, "objects": 8, "median_err_mm": 13.57267741593848, "max_err_mm": 38.624028904560994, "usd": 0.00377525}}
+{"scene": 5, "n": 3, "sam": {"success": true, "steps_ok": 3, "steps": 3, "found": 6, "objects": 6, "median_err_mm": 2.0913132832799715, "max_err_mm": 3.889980470593111, "usd": 0.005}, "llm": {"success": false, "steps_ok": 0, "steps": 3, "found": 6, "objects": 6, "median_err_mm": 103.83306016835795, "max_err_mm": 112.21664356015177, "usd": 0.004654999999999999}}
+{"scene": 6, "n": 5, "sam": {"success": true, "steps_ok": 5, "steps": 5, "found": 10, "objects": 10, "median_err_mm": 2.558601634283993, "max_err_mm": 3.8774365541949605, "usd": 0.005}, "llm": {"success": false, "steps_ok": 2, "steps": 5, "found": 10, "objects": 10, "median_err_mm": 28.427762342306558, "max_err_mm": 69.18842036879863, "usd": 0.0046932499999999995}}
+{"scene": 7, "n": 3, "sam": {"success": true, "steps_ok": 3, "steps": 3, "found": 6, "objects": 6, "median_err_mm": 2.981686811877241, "max_err_mm": 3.7781979864590087, "usd": 0.005}, "llm": {"success": false, "steps_ok": 0, "steps": 3, "found": 6, "objects": 6, "median_err_mm": 49.410658617578505, "max_err_mm": 56.329916009459005, "usd": 0.0046890000000000005}}
+{"scene": 8, "n": 3, "sam": {"success": true, "steps_ok": 3, "steps": 3, "found": 6, "objects": 6, "median_err_mm": 2.343259892510779, "max_err_mm": 3.6832092267992036, "usd": 0.005}, "llm": {"success": false, "steps_ok": 1, "steps": 3, "found": 6, "objects": 6, "median_err_mm": 21.479839362005425, "max_err_mm": 49.990353834499736, "usd": 0.00387725}}
+{"scene": 9, "n": 5, "sam": {"success": true, "steps_ok": 5, "steps": 5, "found": 10, "objects": 10, "median_err_mm": 2.362356138223488, "max_err_mm": 5.190123367944503, "usd": 0.005}, "llm": {"success": false, "steps_ok": 4, "steps": 5, "found": 10, "objects": 10, "median_err_mm": 9.728492269947237, "max_err_mm": 56.70510626080571, "usd": 0.0053732499999999996}}
+{"scene": 10, "n": 4, "sam": {"success": true, "steps_ok": 4, "steps": 4, "found": 8, "objects": 8, "median_err_mm": 2.3573476358936856, "max_err_mm": 3.644619880985631, "usd": 0.005}, "llm": {"success": false, "steps_ok": 1, "steps": 4, "found": 8, "objects": 8, "median_err_mm": 22.332449884131016, "max_err_mm": 41.57831886502402, "usd": 0.004298}}
+{"scene": 11, "n": 3, "sam": {"success": true, "steps_ok": 3, "steps": 3, "found": 6, "objects": 6, "median_err_mm": 2.710752895837095, "max_err_mm": 4.351852889247827, "usd": 0.005}, "llm": {"success": false, "steps_ok": 1, "steps": 3, "found": 5, "objects": 6, "median_err_mm": 27.266132322187346, "max_err_mm": 75.98514538276126, "usd": 0.0061425}}
+{"scene": 12, "n": 4, "sam": {"success": true, "steps_ok": 4, "steps": 4, "found": 8, "objects": 8, "median_err_mm": 2.7772997814354965, "max_err_mm": 3.6782395038965974, "usd": 0.005}, "llm": {"success": false, "steps_ok": 1, "steps": 4, "found": 8, "objects": 8, "median_err_mm": 10.491753833896997, "max_err_mm": 78.29314189920046, "usd": 0.004170500000000001}}
+{"scene": 13, "n": 4, "sam": {"success": true, "steps_ok": 4, "steps": 4, "found": 8, "objects": 8, "median_err_mm": 2.0559972186333817, "max_err_mm": 2.7482286226843056, "usd": 0.005}, "llm": {"success": false, "steps_ok": 0, "steps": 4, "found": 8, "objects": 8, "median_err_mm": 98.0112300952396, "max_err_mm": 134.07431746252237, "usd": 0.004170500000000001}}
+{"scene": 14, "n": 3, "sam": {"success": true, "steps_ok": 3, "steps": 3, "found": 6, "objects": 6, "median_err_mm": 1.9993970201631572, "max_err_mm": 2.4342446315147126, "usd": 0.005}, "llm": {"success": false, "steps_ok": 0, "steps": 3, "found": 6, "objects": 6, "median_err_mm": 92.4896684991494, "max_err_mm": 110.59351450143929, "usd": 0.00780425}}
+{"scene": 15, "n": 4, "sam": {"success": true, "steps_ok": 4, "steps": 4, "found": 8, "objects": 8, "median_err_mm": 2.8413168287789516, "max_err_mm": 4.3279437149040865, "usd": 0.005}, "llm": {"success": false, "steps_ok": 0, "steps": 4, "found": 8, "objects": 8, "median_err_mm": 86.0575858972957, "max_err_mm": 137.31110640076514, "usd": 0.00490575}}
+{"scene": 16, "n": 3, "sam": {"success": true, "steps_ok": 3, "steps": 3, "found": 6, "objects": 6, "median_err_mm": 3.095616663864619, "max_err_mm": 3.556708327631944, "usd": 0.005}, "llm": {"success": false, "steps_ok": 0, "steps": 3, "found": 6, "objects": 6, "median_err_mm": 102.82705278362776, "max_err_mm": 111.28104371866743, "usd": 0.003839}}
+{"scene": 17, "n": 5, "sam": {"success": true, "steps_ok": 5, "steps": 5, "found": 10, "objects": 10, "median_err_mm": 2.304619479810091, "max_err_mm": 5.20551086610681, "usd": 0.005}, "llm": {"success": true, "steps_ok": 5, "steps": 5, "found": 10, "objects": 10, "median_err_mm": 14.531749741061537, "max_err_mm": 28.423683019929765, "usd": 0.00653775}}
+{"scene": 18, "n": 5, "sam": {"success": true, "steps_ok": 5, "steps": 5, "found": 10, "objects": 10, "median_err_mm": 2.9964698987386815, "max_err_mm": 3.681649861024925, "usd": 0.005}, "llm": {"success": true, "steps_ok": 5, "steps": 5, "found": 10, "objects": 10, "median_err_mm": 9.117329132281192, "max_err_mm": 24.421934502150258, "usd": 0.0049695}}
+{"scene": 19, "n": 5, "sam": {"success": true, "steps_ok": 5, "steps": 5, "found": 10, "objects": 10, "median_err_mm": 1.6960032368867846, "max_err_mm": 4.596537434998413, "usd": 0.005}, "llm": {"success": true, "steps_ok": 5, "steps": 5, "found": 10, "objects": 10, "median_err_mm": 9.071815012891406, "max_err_mm": 26.331661925256366, "usd": 0.005475249999999999}}
+{
+ "sam": {
+  "task_success": 0.95,
+  "step_success": 0.9875,
+  "objects_found": 0.99375,
+  "median_err_mm": 2.362957820288193,
+  "usd_per_scene": 0.005000000000000001
+ },
+ "llm": {
+  "task_success": 0.15,
+  "step_success": 0.4625,
+  "objects_found": 0.99375,
+  "median_err_mm": 24.79929110315918,
+  "usd_per_scene": 0.004808425
+ },
+ "model": "muse-spark-1.3"
+}
+ledger $8.392

@@ -1,0 +1,363 @@
+{
+ "summary": {
+  "n": 30,
+  "by_type": {
+   "wrong_target": {
+    "tp": 4,
+    "fn": 0,
+    "fp": 1
+   },
+   "missed": {
+    "tp": 16,
+    "fn": 0,
+    "fp": 0
+   },
+   "wrong_order": {
+    "tp": 1,
+    "fn": 0,
+    "fp": 0
+   },
+   "extra": {
+    "tp": 0,
+    "fn": 0,
+    "fp": 0
+   }
+  },
+  "clean_attempts": 9,
+  "clean_flagged": 0,
+  "mistake_attempts_caught": 21,
+  "mistake_attempts": 21,
+  "exact_type_match": 30,
+  "usd_per_attempt": 0.0266
+ },
+ "rows": [
+  {
+   "i": 0,
+   "task": "sort",
+   "injected": "wrong_target",
+   "found": [
+    "wrong_target"
+   ],
+   "usd": 0.0291,
+   "feedback": [
+    "Step 2: the purple cube is on the yellow mat, it should be on the purple mat."
+   ]
+  },
+  {
+   "i": 1,
+   "task": "stack",
+   "injected": "missed",
+   "found": [
+    "missed"
+   ],
+   "usd": 0.0245,
+   "feedback": [
+    "Step 3: the green cube was not moved - it goes on top of the yellow cube."
+   ]
+  },
+  {
+   "i": 2,
+   "task": "map",
+   "injected": "wrong_target",
+   "found": [
+    "wrong_target"
+   ],
+   "usd": 0.0291,
+   "feedback": [
+    "Step 3: the green cube is on top of the blue cube, it should be on the yellow mat."
+   ]
+  },
+  {
+   "i": 3,
+   "task": "sort",
+   "injected": "missed",
+   "found": [
+    "missed"
+   ],
+   "usd": 0.0245,
+   "feedback": [
+    "Step 2: the green cube was not moved - it goes on the green mat."
+   ]
+  },
+  {
+   "i": 4,
+   "task": "stack",
+   "injected": "missed",
+   "found": [
+    "missed"
+   ],
+   "usd": 0.0245,
+   "feedback": [
+    "Step 3: the green cube was not moved - it goes on top of the yellow cube."
+   ]
+  },
+  {
+   "i": 5,
+   "task": "map",
+   "injected": "none",
+   "found": [],
+   "usd": 0.0291,
+   "feedback": []
+  },
+  {
+   "i": 6,
+   "task": "sort",
+   "injected": "wrong_target",
+   "found": [
+    "wrong_target"
+   ],
+   "usd": 0.0291,
+   "feedback": [
+    "Step 3: the yellow cube is somewhere else, it should be on the yellow mat."
+   ]
+  },
+  {
+   "i": 7,
+   "task": "stack",
+   "injected": "none",
+   "found": [],
+   "usd": 0.0291,
+   "feedback": []
+  },
+  {
+   "i": 8,
+   "task": "map",
+   "injected": "missed",
+   "found": [
+    "missed"
+   ],
+   "usd": 0.0245,
+   "feedback": [
+    "Step 3: the green cube was not moved - it goes on the yellow mat."
+   ]
+  },
+  {
+   "i": 9,
+   "task": "sort",
+   "injected": "missed",
+   "found": [
+    "missed"
+   ],
+   "usd": 0.0245,
+   "feedback": [
+    "Step 1: the purple cube was not moved - it goes on the purple mat."
+   ]
+  },
+  {
+   "i": 10,
+   "task": "stack",
+   "injected": "missed",
+   "found": [
+    "missed"
+   ],
+   "usd": 0.0245,
+   "feedback": [
+    "Step 3: the green cube was not moved - it goes on top of the yellow cube."
+   ]
+  },
+  {
+   "i": 11,
+   "task": "map",
+   "injected": "missed",
+   "found": [
+    "missed"
+   ],
+   "usd": 0.0245,
+   "feedback": [
+    "Step 3: the green cube was not moved - it goes on the yellow mat."
+   ]
+  },
+  {
+   "i": 12,
+   "task": "sort",
+   "injected": "none",
+   "found": [],
+   "usd": 0.0291,
+   "feedback": []
+  },
+  {
+   "i": 13,
+   "task": "stack",
+   "injected": "none",
+   "found": [],
+   "usd": 0.0291,
+   "feedback": []
+  },
+  {
+   "i": 14,
+   "task": "map",
+   "injected": "wrong_target",
+   "found": [
+    "wrong_target"
+   ],
+   "usd": 0.0291,
+   "feedback": [
+    "Step 1: the blue cube is on the orange mat, it should be on the purple mat.",
+    "Step 2: the red cube is on top of the blue cube, it should be on the orange mat."
+   ]
+  },
+  {
+   "i": 15,
+   "task": "sort",
+   "injected": "missed",
+   "found": [
+    "missed"
+   ],
+   "usd": 0.0245,
+   "feedback": [
+    "Step 2: the green cube was not moved - it goes on the green mat."
+   ]
+  },
+  {
+   "i": 16,
+   "task": "stack",
+   "injected": "none",
+   "found": [],
+   "usd": 0.0291,
+   "feedback": []
+  },
+  {
+   "i": 17,
+   "task": "map",
+   "injected": "missed",
+   "found": [
+    "missed"
+   ],
+   "usd": 0.0245,
+   "feedback": [
+    "Step 3: the green cube was not moved - it goes on the yellow mat."
+   ]
+  },
+  {
+   "i": 18,
+   "task": "sort",
+   "injected": "missed",
+   "found": [
+    "missed"
+   ],
+   "usd": 0.0245,
+   "feedback": [
+    "Step 2: the purple cube was not moved - it goes on the purple mat."
+   ]
+  },
+  {
+   "i": 19,
+   "task": "stack",
+   "injected": "missed",
+   "found": [
+    "missed"
+   ],
+   "usd": 0.0245,
+   "feedback": [
+    "Step 3: the green cube was not moved - it goes on top of the yellow cube."
+   ]
+  },
+  {
+   "i": 20,
+   "task": "map",
+   "injected": "none",
+   "found": [],
+   "usd": 0.0291,
+   "feedback": []
+  },
+  {
+   "i": 21,
+   "task": "sort",
+   "injected": "missed",
+   "found": [
+    "missed"
+   ],
+   "usd": 0.0245,
+   "feedback": [
+    "Step 2: the green cube was not moved - it goes on the green mat."
+   ]
+  },
+  {
+   "i": 22,
+   "task": "stack",
+   "injected": "missed",
+   "found": [
+    "missed"
+   ],
+   "usd": 0.0245,
+   "feedback": [
+    "Step 3: the green cube was not moved - it goes on top of the yellow cube."
+   ]
+  },
+  {
+   "i": 23,
+   "task": "map",
+   "injected": "none",
+   "found": [],
+   "usd": 0.0291,
+   "feedback": []
+  },
+  {
+   "i": 24,
+   "task": "sort",
+   "injected": "missed",
+   "found": [
+    "missed"
+   ],
+   "usd": 0.0245,
+   "feedback": [
+    "Step 1: the orange cube was not moved - it goes on the orange mat."
+   ]
+  },
+  {
+   "i": 25,
+   "task": "stack",
+   "injected": "wrong_order",
+   "found": [
+    "wrong_order",
+    "wrong_target"
+   ],
+   "usd": 0.0291,
+   "feedback": [
+    "Step 1: the blue cube is on top of the yellow cube, it should be on the red mat.",
+    "Step 2: the yellow cube is on the red mat, it should be on top of the blue cube.",
+    "The yellow cube was placed before the blue cube it must stand on - place the blue cube first."
+   ]
+  },
+  {
+   "i": 26,
+   "task": "map",
+   "injected": "missed",
+   "found": [
+    "missed"
+   ],
+   "usd": 0.0245,
+   "feedback": [
+    "Step 1: the blue cube was not moved - it goes on the purple mat."
+   ]
+  },
+  {
+   "i": 27,
+   "task": "sort",
+   "injected": "none",
+   "found": [],
+   "usd": 0.0291,
+   "feedback": []
+  },
+  {
+   "i": 28,
+   "task": "stack",
+   "injected": "none",
+   "found": [],
+   "usd": 0.0291,
+   "feedback": []
+  },
+  {
+   "i": 29,
+   "task": "map",
+   "injected": "missed",
+   "found": [
+    "missed"
+   ],
+   "usd": 0.0245,
+   "feedback": [
+    "Step 2: the red cube was not moved - it goes on the orange mat."
+   ]
+  }
+ ]
+}
