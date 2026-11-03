@@ -8,6 +8,10 @@ every model call is priced.
 Built for the Meta Global AI Developer Hackathon (Oct 26 – Nov 4, 2026). All code in this repo was written during
 the event.
 
+## Demo
+
+**▶ 3-minute demo video:** https://youtu.be/i8jYvG6PVCk
+
 ## Build log
 - **2026-10-27** — Meta Model API client with a local spend ledger and hard budget stop (`apprentice/meta_client.py`).
   MuJoCo free-fall scenes with exact camera intrinsics and ground truth (`sim/drop_scene.py`).
